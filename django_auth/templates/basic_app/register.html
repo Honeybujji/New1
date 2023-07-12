@@ -1,0 +1,18 @@
+{% extends 'basic_app/index.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Register page</h1>
+{% if registered %}
+    <h1>Thank you for regiostering</h1>
+{% else%}
+
+
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Register">
+</form>
+{% endif %}
+{% endblock %}
